@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Of India</title>
+    <link rel="stylesheet" href="school_index_style.css">
+</head>
+<!-- <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap');
+  </style> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+  </style>
+<body>
+    <header></header>
+    <nav>
+        <div class="logo">
+        <img class = 'govtg' src="assets/govtg1.png" alt="Government of Gujarat Logo">
+        <h1>Government Of India</h1>
+        </div>
+        <ul>
+
+        <li><a href="#" onclick="showContent('info')">Home </a></li>
+        <li><a href="#" onclick="showContent('dropout-form')">Student Dropout Form</a></li>
+        <li><a href="#" onclick="showContent('dropout-view')">Edit Details of Student</a></li>
+        <!-- <li><a href="#" onclick="showContent('suggestion')">Suggestion</a></li> -->
+        <li><a href="#">Log Out</a>
+        </ul>
+    </nav>
+
+    <!-- <div class="container" id="workpending"></div> -->
+
+    <div class="container" id="info">
+        <div class="sub-container" id="gov_info">
+            <h2 class="state_title">School Profile</h2>
+            <table>
+                <tr>
+                    <td class="t_title"> School Name </td>
+                    <td>Sabari Vidyalaya</td>
+                </tr>
+                <tr>
+                    <td class="t_title">High School Passing Rate </td>
+                    <!-- <td>Gandhinagar</td> -->
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td class="t_title"> Total Students </td>
+                    <td> 2000</td>
+                </tr>
+                <tr>
+                    <td class="t_title"> Average Attendance every day </td>
+                    <td> 1800</td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School Area type </td>
+                    <td> Urban </td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School City </td>
+                    <td> Vadodara </td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School Type </td>
+                    <td> SEMI_GOVT (Grant in aid) </td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School FEES </td>
+                    <td> 1500 - 10k </td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School Area </td>
+                    <td> Diwalipura </td>
+                </tr>
+                <tr>
+                    <td class="t_title"> School Principal </td>
+                    <td> Mrs. Bindu Pillai </td>
+                </tr>
+                <!-- Add more fields here -->
+            </table>
+        </div>
+    </div>
+
+    <div class="container" id="dropout-form">
+        <div class="form-container">
+
+
+            <form action="submit.php" method="post">
+                <h2>Dropout Form</h2>
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student-name" required placeholder="Enter student's name">
+    
+                <label for="student-age">Student Age:</label>
+                <input type="number" id="student-age" name="student-age" required placeholder="Enter student's age">
+    
+                <label>Student Gender:</label>
+
+                <input type="radio" id="male" name="student-gender" class="inl" value="male" required/>
+                Female
+                <input type="radio" id="female" name="student-gender" class="inl" value="female" required/>
+                Male
+                <label for="student-caste">Student Caste:</label>
+                <!-- <input type="text" id="student-caste" name="student-caste" required placeholder="Enter student's caste"> -->
+                <select id="student-caste" name="student-caste" required>
+                    <option value="" disabled selected>Select Caste</option>
+                    <option value="financial">Open</option>
+                    <option value="personal">OBC/SEBC</option>
+                    <option value="academic">Scheduled Caste</option>
+                    <option value="health">Scheduled Tribe</option>
+                    <!-- Add more options as needed -->
+                </select>
+    
+                <label for="student-area">Student Area:</label>
+                <input type="text" id="student-area" name="student-area" required placeholder="Enter student's area">
+    
+                <label for="student-city">Student City:</label>
+                <input type="text" id="student-city" name="student-city" required placeholder="Enter student's city">
+    
+                <label for="household-income">Household Income:</label>
+                <input type="number" id="household-income" name="household-income" required placeholder="Enter household income">
+    
+                <label for="leave-reason">Reason for Leaving:</label>
+                <select id="leave-reason" name="leave-reason" required>
+                    <option value="" disabled selected>Select a reason</option>
+                    <option value="financial">Financial reasons</option>
+                    <option value="personal">Personal reasons</option>
+                    <option value="academic">Academic challenges</option>
+                    <option value="health">Health issues</option>
+                    <option value="School">Harassment or Bullying</option>
+                    <option value="depresion">Depression</option>
+                    <option value="familyrelocation">Family Relocation</option>
+                    <option value="Legal">Legal or Judicial Reasons</option>
+                    <!-- Add more options as needed -->
+                </select>
+    
+                <label for="father-occupation">Father's Occupation:</label>
+                <input type="text" id="father-occupation" name="father-occupation" required placeholder="Enter father's occupation">
+    
+                <label for="mother-occupation">Mother's Occupation:</label>
+                <input type="text" id="mother-occupation" name="mother-occupation" required placeholder="Enter mother's occupation">
+    
+                <label for="family-members">Number of Family Members:</label>
+                <input type="number" id="family-members" name="family-members" required placeholder="Enter number of family members">
+    
+                <!-- Add more fields here -->
+                <input class="btn" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="container" id="dropout-view">
+       
+        <div class="class-filter">
+            <label for="class-select">Filter:</label>
+            <select id="class-select" onchange="filterByClass()">
+                <option value="all">All Classes</option>
+                <option value="name">Name</option>
+                <option value="age">age</option>
+                <option value="class">class</option>
+                <option value="gender">gender</option>
+                <option value="area">area</option>
+                <option value="city">city</option>
+                <option value="income">income</option>
+                <option value="reason">reason for leaving</option>
+
+
+                <!-- Add more options for other classes -->
+            </select>
+        </div>
+        <div class="sub-container">
+            <table>
+                <h2>Dropout View</h2>
+                <thead>
+                    <tr>
+                        <th>Profile Picture</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Class</th>
+                        <th>Gender</th>
+                        <th>Area</th>
+                        <th>City</th>
+                        <th>Household Income</th>
+                        <th>Reason for Leaving</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="assets/icons8-profile-picture-100.png" alt="Profile Picture" class="pfp"></td>
+                        <td>Ramesh</td>
+                        <td>10</td>
+                        <td>5th</td>
+                        <td>Male</td>
+                        <td>Gadapura</td>
+                        <td>Vadodara</td>
+                        <td>200 Rs</td>
+                        <td>Financial</td>
+                        <td><img src="assets/delete.png" alt="delete" class="pfp"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/icons8-profile-picture-100.png" alt="Profile Picture" class="pfp"></td>
+                        <td>Dhyey</td>
+                        <td>19</td>
+                        <td>12th</td>
+                        <td>Male</td>
+                        <td>Vasana</td>
+                        <td>Vadodara</td>
+                        <td>200000000000000 Rs</td>
+                        <td>Financial</td>
+                        <td><img src="assets/delete.png" alt="delete" class="pfp"></td>
+                    </tr>
+                    <!-- Add more rows for additional students -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Display submitted data from the database here -->
+    </div>
+    
+
+    <div class="container" id="report">
+        <h2>Report</h2>
+        <div class="sub-container">
+        <p>School Name: XYZ School</p>
+        <p>School Area: Chandkheda</p>
+        <p>Field 2: Value 2</p>
+        <p>Field 1: Value 1</p>
+        </div>
+        <!-- Add more fields here -->
+    </div>
+
+    <div class="container" id="suggestion">
+        <h2>Suggestion</h2>
+        <div class="sub-container">
+        <p>School Name: XYZ School</p>
+        <p>School Area: Chandkheda</p>
+        <p>School Name: XYZ School</p>
+        <p>School Area: Chandkheda</p>
+        <p>School Name: XYZ School</p>
+        <p>School Area: Chandkheda</p>
+        <p>Field 2: Value 2</p>
+        <p>Field 1: Value 1</p>
+        </div>
+        <!-- Add more fields here -->
+    </div>
+    <footer class="foot">
+        <div class="logo2">
+        <img class = 'govtg' src="assets/govtg1.png" alt="Government of Gujarat Logo">
+        <h1>Government Of India</h1></div>
+        <hr>
+        <div class="socials">
+<p>Follow Us</p>
+<img src="assets/icons8-twitter-150.png" alt="x">
+<img src="assets/icons8-instagram-150.png" alt="insta">
+<img src="assets/icons8-facebook-150.png" alt="meta">
+<img src="assets/icons8-youtube-256.png" alt="yt">
+<img src="assets/icons8-email-100.png" alt="email">
+<img src="assets/icons8-discord-100.png" alt="ds">
+<div class="queries">
+<p>Privacy policy</p>
+<p>Accessibility Statement</p>
+<p>Copyright Information</p>
+<p>FQIA</p>
+<p>No FEAR act</p></div></div>
+<div class="copyright">
+    <!-- <img src="assets/copyright.png" alt="copyright"> -->
+    <p>TEAM: Edu-Empowerers :-)</p>
+</div>
+</footer>
+
+    <script>
+        function showContent(contentId) {
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => {
+                container.classList.remove('active-container');
+            });
+            document.getElementById(contentId).classList.add('active-container');
+        }
+    </script>
+    
+</body>
+</html>
