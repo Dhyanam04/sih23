@@ -1,4 +1,4 @@
-# sih23
+# SIH23
 SIH'23  Problem Statement: 1362
 
 In This we have Created a Working Prototype Website lil bit integration is left
